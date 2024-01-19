@@ -17,7 +17,7 @@ public class AnswerService {
     }
 
     public Answer getAnswerById(ObjectId answerId) {
-        return (Answer) answerRepository.findById(answerId).orElse(null);
+        return  answerRepository.findById(answerId).orElse(null);
     }
 
     public Answer upvoteAnswer(ObjectId answerId) {

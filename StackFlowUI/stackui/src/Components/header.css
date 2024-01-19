@@ -1,0 +1,36 @@
+.app-header {
+    padding: 10px 100px 10px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.app-name {
+    display: flex;
+    align-items: center;
+}
+
+.app-name h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.login-button {
+    border: 1px solid #0000FF;
+    color: #0000FF;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.signup-button {
+    background-color: #0000FF;
+    border: 1px solid #0000FF;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}

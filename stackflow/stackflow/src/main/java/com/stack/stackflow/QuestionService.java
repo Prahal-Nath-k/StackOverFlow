@@ -20,12 +20,10 @@ public class QuestionService {
     }
 
     public Question postQuestion(Question question) {
-        // You might want to add some business logic or validation before saving
         return questionRepo.save(question);
     }
 
     public void saveQuestion(Question question) {
-        // If you want to save without returning the saved question
         questionRepo.save(question);
     }
 

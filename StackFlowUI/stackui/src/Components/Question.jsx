@@ -1,17 +1,14 @@
-// Question.js
 import React from 'react';
 import Answer from './Answer';
 
-const Question = ({ question }) => {
+const Question = ({ question, answers }) => {
   return (
-    <div>
+    <div className="question">
       <h2>{question.title}</h2>
       <p>{question.body}</p>
       <p>Author: {question.author}</p>
-      <h3>Answers:</h3>
-      {/* {question.answers.map((answer) => (
-        <Answer key={answer._id.$oid} answer={answer} />
-      ))} */}
+      <h4>{question.answers.length} Answers </h4>
+      <Answer questionId={question._id.$oid} answers={answers} />
     </div>
   );
 };
