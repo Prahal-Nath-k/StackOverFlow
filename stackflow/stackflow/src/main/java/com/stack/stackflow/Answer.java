@@ -20,7 +20,6 @@ public class Answer {
 
 
     public Answer() {
-        // Default constructor
     }
 
     public Answer(ObjectId _id, ObjectId questionId, String body, String userId, int upvotes, int downvotes,

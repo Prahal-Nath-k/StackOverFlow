@@ -10,9 +10,8 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private boolean enabled; // You can use this for account activation
+    private boolean enabled;
 
-    // Constructors
     public User() {
     }
 

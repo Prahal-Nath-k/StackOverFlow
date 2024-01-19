@@ -24,7 +24,6 @@ public class Question {
 
 
     public Question() {
-        // Default constructor
     }
 
     public Question(ObjectId _id, String title, String body, String author, List<ObjectId> answers,
