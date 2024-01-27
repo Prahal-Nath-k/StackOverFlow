@@ -1,53 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+
 const Answer = ({ questionId, answers }) => {
-  const filteredAnswers = answers.filter(answer => answer.question_id === questionId);
+  const [votedAnswers, setVotedAnswers] = useState(new Set());
 
-  const upVote = (up) => {
+  const upVote = async (answerId) => {
     try {
-      //send up+1 to the api need to display the same in ui 
-      const response = axios.put("http://localhost:8080/api/questions");
-      // setQuestions(response.data);
-
-    }
-    catch (err) {
-      console.log(err);
+      if (!votedAnswers.has(answerId)) {
+        await axios.put(`http://localhost:8080/api/answers/${answerId}/upvote`);
+        setVotedAnswers(new Set([...votedAnswers, answerId]));
+      }
+    } catch (error) {
+      console.error('Error upvoting answer:', error);
     }
   };
 
-  const downVote = (up) => {
+  const downVote = async (answerId) => {
     try {
-      //send down-1 to the api need to display the same in ui 
-      const response = axios.put("http://localhost:8080/api/questions");
-      // setQuestions(response.data);
-
-    }
-    catch (err) {
-      console.log(err);
+      if (!votedAnswers.has(answerId)) {
+        await axios.put(`http://localhost:8080/api/answers/${answerId}/downvote`);
+        setVotedAnswers(new Set([...votedAnswers, answerId]));
+      }
+    } catch (error) {
+      console.error('Error downvoting answer:', error);
     }
   };
 
   return (
     <div>
-      {filteredAnswers.map((answer, index) => (
-        <div className='answer-content'>
+      {answers.map((answer) => (
+        <div key={answer.id} className='answer-content'>
           <div className='vote-content'>
-            <button className="vote-button" onClick={() => upVote(answer.upvotes)}>
-              <i className="fas fa-chevron-up"></i>
+            <button className='vote-button' onClick={() => upVote(answer.id)}>
+              <i className='fas fa-chevron-up'></i>
             </button>
-            <span className="vote-count">{answer.upvotes}</span>
-            <button className="vote-button" onClick={() => downVote(answer.upvotes)}>
-              <i className="fas fa-chevron-down"></i>
+            <span className='vote-count'>{answer.upvotes}</span>
+            <button className='vote-button' onClick={() => downVote(answer.id)}>
+              <i className='fas fa-chevron-down'></i>
             </button>
           </div>
-          <div key={index} className="answer">
+          <div className='answer'>
             <p>{answer.body}</p>
             <p>Author: {answer.author}</p>
-            {/* Display comments here */}
           </div>
         </div>
-
       ))}
     </div>
   );
 };
+
 export default Answer;

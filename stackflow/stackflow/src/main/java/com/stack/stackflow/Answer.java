@@ -5,7 +5,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
-@Document(collection = "answers")
+@Document(collection = "Answers")
 @Data
 public class Answer {
     private ObjectId _id;

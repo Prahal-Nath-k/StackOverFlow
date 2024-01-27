@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/answers")
+@RequestMapping("/api")
 public class AnswerController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class AnswerController {
         return new ResponseEntity<>(createdAnswer, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{answerId}")
+    @GetMapping("/get-answer/{answerId}")
     public ResponseEntity<Answer> getAnswer(@PathVariable ObjectId answerId) {
         Answer answer = answerService.getAnswerById(answerId);
         if (answer != null) {
@@ -50,7 +50,7 @@ public class AnswerController {
         }
     }
 
-    @DeleteMapping("/{answerId}")
+    @DeleteMapping("delete/{answerId}")
     public ResponseEntity<Void> deleteAnswer(@PathVariable ObjectId answerId) {
         boolean deleted = answerService.deleteAnswer(answerId);
         if (deleted) {

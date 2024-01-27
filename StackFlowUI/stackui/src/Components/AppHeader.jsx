@@ -1,5 +1,5 @@
 import React from 'react';
-import './../styles/header.css';
+import './header.css';
 
 const AppHeader = () => {
 
@@ -8,7 +8,7 @@ const AppHeader = () => {
             <div className="app-name">
                 <h1>Stack Overflow Clone</h1>
             </div>
-            <div>
+            <div className="auth-buttons">
                 <button className="login-button">Login</button>
                 <button className="signup-button">Sign up</button>
             </div>

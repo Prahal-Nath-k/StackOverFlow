@@ -7,7 +7,7 @@ const Question = ({ question, answers }) => {
       <h2>{question.title}</h2>
       <p>{question.body}</p>
       <p>Author: {question.author}</p>
-      <h4>{question.answers.length} Answers </h4>
+      <h4>{question.answers.length} {question.answers.length === 1 ? 'Answer' : 'Answers'}</h4>
       <Answer questionId={question._id.$oid} answers={answers} />
     </div>
   );

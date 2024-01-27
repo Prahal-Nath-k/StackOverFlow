@@ -17,7 +17,7 @@ public class Question {
     private String title;
     private String body;
     private String author;
-    //private List<ObjectId> answers;
+    private List<ObjectId> answers;
     private ObjectId approvedAnswerId;
     private Date createdAt;
     private Date updatedAt;
@@ -32,7 +32,7 @@ public class Question {
         this.title = title;
         this.body = body;
         this.author = author;
-       // this.answers = answers;
+        this.answers = answers;
         this.approvedAnswerId = approvedAnswerId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -70,13 +70,13 @@ public class Question {
         this.author = author;
     }
 
-//    public List<ObjectId> getAnswers() {
-//        return answers;
-//    }
-//
-//    public void setAnswers(List<ObjectId> answers) {
-//        this.answers = answers;
-//    }
+    public List<ObjectId> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<ObjectId> answers) {
+        this.answers = answers;
+    }
 
     public ObjectId getApprovedAnswerId() {
         return approvedAnswerId;
