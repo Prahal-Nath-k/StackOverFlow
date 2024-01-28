@@ -25,10 +25,11 @@ const Answer = ({ questionId, answers }) => {
       console.error('Error downvoting answer:', error);
     }
   };
+  console.log('Answers in Answer:', answers);
 
   return (
     <div>
-      {answers.map((answer) => (
+      {answers?.map((answer) => (
         <div key={answer.id} className='answer-content'>
           <div className='vote-content'>
             <button className='vote-button' onClick={() => upVote(answer.id)}>
