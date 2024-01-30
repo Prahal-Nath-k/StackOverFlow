@@ -4,13 +4,23 @@
 }
 
 .question {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
+.question:hover {
+  transform: scale(1.02);
+}
 .question h4 {
     margin-bottom: 25px;
+}
+
+.answer-content:hover {
+  transform: scale(1.02);
 }
 
 .answer {
@@ -19,17 +29,20 @@
     border-radius: 5px;
 }
 
-/* answer page styless*/
-
 .answer-content {
-    display: flex;
-    gap: 20px
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #f0f0f0;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.vote-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.answer-content .vote-content {
+  display: flex;
+  align-items: center;
 }
 
 .answer {
@@ -47,6 +60,9 @@
 }
 
 .vote-button {
+  background-color: transparent;
+  margin-right: 8px;
+
     border: 2px solid #ccc;
     border-radius: 50%;
     cursor: pointer;
@@ -55,8 +71,8 @@
 }
 
 .vote-count {
-    font-size: 1rem;
-    margin: 0 5px;
+  font-weight: bold;
+  margin: 0 8px;
 }
 
 .question-list {
@@ -71,10 +87,11 @@
     margin-bottom: 16px;
   }
   
-  .question h2 {
-    margin-bottom: 8px;
-  }
   
+.question h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
   .question p {
     margin-bottom: 12px;
   }
@@ -105,6 +122,7 @@
   }
   
   .answer p {
+    margin: 10px 0;
     margin-bottom: 8px;
   }
 
