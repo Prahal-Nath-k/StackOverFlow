@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './questionList.css'
 
-const Answer = ({ questionId, answers }) => {
+
+
+const Answer = ({  answers }) => {
   const [votedAnswers, setVotedAnswers] = useState(new Set());
 
   const upVote = async (answerId) => {
     try {
       if (!votedAnswers.has(answerId)) {
-        await axios.put(`http://localhost:8080/api/answers/${answerId}/upvote`);
+        await axios.put(`http://localhost:8080/answers/${answerId}/upvote`);
         setVotedAnswers(new Set([...votedAnswers, answerId]));
       }
     } catch (error) {
@@ -18,14 +21,13 @@ const Answer = ({ questionId, answers }) => {
   const downVote = async (answerId) => {
     try {
       if (!votedAnswers.has(answerId)) {
-        await axios.put(`http://localhost:8080/api/answers/${answerId}/downvote`);
+        await axios.put(`http://localhost:8080/answers/${answerId}/downvote`);
         setVotedAnswers(new Set([...votedAnswers, answerId]));
       }
     } catch (error) {
       console.error('Error downvoting answer:', error);
     }
   };
-  console.log('Answers in Answer:', answers);
 
   return (
     <div>

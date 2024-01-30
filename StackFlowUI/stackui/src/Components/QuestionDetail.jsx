@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './questionList.css'
 
 const QuestionDetail = ({ match }) => {
   const [question, setQuestion] = useState(null);
@@ -7,7 +8,7 @@ const QuestionDetail = ({ match }) => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/get-question/${match.params.questionId}`);
+        const response = await axios.get(`http://localhost:8080/questions/get-question/${match.params.questionId}`);
         setQuestion(response.data);
       } catch (error) {
         console.error('Error fetching question:', error);

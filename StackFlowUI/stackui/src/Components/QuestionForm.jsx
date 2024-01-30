@@ -1,35 +1,50 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './QuestionForm.css'; 
 
-const QuestionForm = () => {
+const QuestionForm = ({ onQuestionSubmit }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleBodyChange = (e) => {
+    setBody(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:8080/api/post-question', { title, body });
+      const response = await axios.post('http://localhost:8080/questions/post-question', {
+        title,
+        body,
+        author: 'User123', 
+            });
+
+      onQuestionSubmit(response.data);
+      setTitle('');
+      setBody('');
     } catch (error) {
-      console.error('Error posting question:', error);
+      console.error('Error submitting question:', error);
     }
   };
 
   return (
-    <div>
-      <h2>Ask a Question</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-        </div>
-        <div>
-          <label>Body:</label>
-          <textarea value={body} onChange={(e) => setBody(e.target.value)}></textarea>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <div className="question-form-container"> {/* Apply styles to this container */}
+    <h2>Ask a Question</h2>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="title">Title:</label>
+      <input type="text" id="title" value={title} onChange={handleTitleChange} required />
+
+      <label htmlFor="body">Body:</label>
+      <textarea id="body" value={body} onChange={handleBodyChange} required />
+
+      <button type="submit">Submit Question</button>
+    </form>
+  </div>
   );
 };
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import Answer from './Answer';
+import './questionList.css'
 
 const Question = ({ question, answers }) => {
-  console.log('Answers in Question:', answers);
-
   return (
     <div className="question">
       <h2>{question.title}</h2>

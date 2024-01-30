@@ -58,3 +58,98 @@
     font-size: 1rem;
     margin: 0 5px;
 }
+
+.question-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .question {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .question h2 {
+    margin-bottom: 8px;
+  }
+  
+  .question p {
+    margin-bottom: 12px;
+  }
+  
+  .answer-content {
+    border-top: 1px solid #ddd;
+    padding: 12px 0;
+  }
+  
+  .vote-content {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+  }
+  
+  .vote-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .vote-count {
+    margin: 0 8px;
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .answer p {
+    margin-bottom: 8px;
+  }
+
+  .app-header {
+    background-color: #f48024;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-name {
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-name h1 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .login-button,
+  .signup-button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .signup-button {
+    background-color: #fff;
+    color: #f48024;
+  }
+  
+  .signup-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Add more styles as needed */
+  
+  

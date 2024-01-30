@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+@RequestMapping("/questions")
 public class QuestionController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class QuestionController {
     @Autowired
     private AnswerRepo answerRepository;
 
-    @GetMapping("/questions")
+    @GetMapping("/all-questions")
     public ResponseEntity<List<Question>> getAllQuestions() {
         List<Question> questions = questionService.allQuestions();
         return new ResponseEntity<>(questions, HttpStatus.OK);
